@@ -86,6 +86,7 @@
     </style>
 </head>
 <body>
+  <audio id="soundmusic" src="">
       <div id="menu"><a href="https://nyanko-z.github.io/WM-nyanko/" id="menufont">ホーム<span id="menuaida"> | </span></a><a href="https://nyanko-z.github.io/rendagame/" id="menufont">連打ゲー<span id="menuaida"> | </span></a></div>
     <div id="yohaku"></div>
     <button id="rendasuru">連打ゲーをする</button>
@@ -111,6 +112,9 @@
       document.getElementById("rendaimg").style.display="block";
     },3000);
     document.getElementById("renda").addEventListener("click",()=>{
+      const sound=document.getElementById("soundmusic");
+      sound.currentTime=0;
+      sound.play();
       rendanankai++;
       });
       setTimeout(()=>{
