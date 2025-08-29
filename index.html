@@ -114,7 +114,7 @@
       document.getElementById("rendaimg").style.display="block";
       const soundback=document.getElementById("soundback");
                     soundback.currentTime=0;
-                    sound.play();
+                    soundback.play();
     },3000);
     document.getElementById("renda").addEventListener("click",()=>{
       const sound=document.getElementById("soundmusic");
@@ -125,7 +125,7 @@
       setTimeout(()=>{
       const soundfinish=document.getElementById("soundfinish");
         soundfinish.currentTime=0;            
-        sound.play();
+        soundfinish.play();
         if (localStorage.getItem("best")<rendanankai){
           localStorage.setItem("best",rendanankai);
         };
