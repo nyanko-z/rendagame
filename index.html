@@ -16,7 +16,6 @@
 }
     #renda{
     display: none;
-    text-align: center;
     padding: 50px;
     border-radius: 10px;
     font-size: 30px;
@@ -54,7 +53,6 @@
     margin-left: 25%;
     margin-top: 10px;
     font-size: 20px;
-    text-align: center;
   }
   #menu{
     width: 95%;
@@ -90,7 +88,7 @@
   <audio id="soundfinish" src="ジャン！.mp3"></audio>
   <div id="menu"><a href="https://nyanko-z.github.io/WM-nyanko/" id="menufont">ホーム<span id="menuaida"> | </span></a><a href="https://nyanko-z.github.io/rendagame/" id="menufont">連打ゲー<span id="menuaida"> | </span></a></div>
     <div id="yohaku"></div>
-    <button id="rendasuru">連打ゲーをする</button>
+    <div style="text-align: center;"><button id="rendasuru">連打ゲーをする</button></div>
   <h3 id="best"></h3>
   <p id='startmade'>•3秒後にスタート<br>•結果が表示された後、自動で再読み込みします。<br>•両手だとボタンが反応しない場合があります。<br>・音があります。</p>
   <p id="rendaowari">終了！</p>
@@ -98,7 +96,7 @@
   <p id="rendanankai"></p>
   <h3><div id="rendastart">start!!</div></h3>
   <img id="rendaimg" src="InShot_20250824_183815200.gif">
-  <button id="renda">連打！！</button>
+  <div style="text-align: center;"><button id="renda">連打！！</button></div>
   <script>
   let rendanankai=0;
   let best=localStorage.getItem("best");
