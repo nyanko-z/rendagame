@@ -87,7 +87,8 @@
 </head>
 <body>
   <audio id="soundmusic" src="決定ボタンを押す22.mp3"></audio>
-      <div id="menu"><a href="https://nyanko-z.github.io/WM-nyanko/" id="menufont">ホーム<span id="menuaida"> | </span></a><a href="https://nyanko-z.github.io/rendagame/" id="menufont">連打ゲー<span id="menuaida"> | </span></a></div>
+  <audio id="soundback" src="【無料素材】リズムパターン2.mp3"></audio>
+  <div id="menu"><a href="https://nyanko-z.github.io/WM-nyanko/" id="menufont">ホーム<span id="menuaida"> | </span></a><a href="https://nyanko-z.github.io/rendagame/" id="menufont">連打ゲー<span id="menuaida"> | </span></a></div>
     <div id="yohaku"></div>
     <button id="rendasuru">連打ゲーをする</button>
   <h3 id="best"></h3>
@@ -110,6 +111,8 @@
       document.getElementById("rendastart").style.display="block";
       document.getElementById("renda").scrollIntoView({behavior: 'auto'});
       document.getElementById("rendaimg").style.display="block";
+      document.getElementById("soundback").currentTime=0;
+                    sound.play();
     },3000);
     document.getElementById("renda").addEventListener("click",()=>{
       const sound=document.getElementById("soundmusic");
@@ -118,6 +121,7 @@
       rendanankai++;
       });
       setTimeout(()=>{
+        
         if (localStorage.getItem("best")<rendanankai){
           localStorage.setItem("best",rendanankai);
         };
@@ -129,6 +133,8 @@
         document.getElementById("rendanankai").style.display="block";
         document.getElementById("rendanankai").innerText=`${rendanankai}回！`;
         document.getElementById("rendanankai").scrollIntoView({behavior: "smooth"});
+        document.getElementById("soundback").currentTime=0;
+                    sound.pause();
         setTimeout(()=>{location.reload()},4000);
       },13000);
     });
