@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no"> 
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>連打ゲー</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet"><!-- Google Fonts -->
+  <style>
+    body{
+  font-family: "Zen Maru Gothic",sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+    #renda{
+    display: none;
+    padding: 50px;
+    margin-left: 30%;
+    border-radius: 10px;
+  }
+  #rendastart{
+    text-align: center;
+    color: red;
+    font-size: 30px;
+    display: none;
+  }
+  #kekka{
+    text-align: center;
+    color: red;
+    font-size: 30px;
+  }
+  #rendaowari{
+    text-align: center;
+    color: red;
+    font-size: 30px;
+    display: none;
+  }
+  #rendanankai{
+    text-align: center;
+    font-size: 50px;
+    display: none;
+  }
+  #rendaimg{
+    display: none;
+    width: 50px;
+    height: 50px;
+  }
+  #rendasaido{
+    display: none;
+  }
+  #rendasuru{
+    width: 50%;
+    height: 30px;
+    margin-left: 25%;
+    margin-top: 10px;
+    font-size: 20px;
+  }
+  #menu{
+    width: 95%;
+    height: 50px;
+    background-color: #00B6FF;
+    color: white;
+    text-decoration: none;
+    position: fixed;
+    margin-top: 5px;
+    font-size: 20px;
+  }
+  #menufont{
+    font-size: 20px;
+    margin-top: 5px;
+    text-decoration: none;
+    text-decoration: none;
+    color: white;
+  }
+  #yohaku{
+    height: 60px;
+  }
+  #menuaida{
+    color: white;
+    font-size: 35px;
+  }
+  #block1 { background-color: #00B6FF; height: 70px; width: 100%;}
+    
+    </style>
+</head>
+<body>
+      <div id="menu"><a href="https://nyanko-z.github.io/WM-nyanko/" id="menufont">ホーム<span id="menuaida"> | </span></a><a href="https://nyanko-z.github.io/rendagame/" id="menufont">連打ゲー<span id="menuaida"> | </span></a></div>
+    <div id="yohaku"></div>
+    <button id="rendasuru">連打ゲーをする</button>
+  <h3 id="best"></h3>
+  <p id='startmade'>•3秒後にスタート<br>•結果が表示された後、自動で再読み込みします。<br>•スマホやタブレットの場合、片手でのプレイをお勧めします。</p>
+  <p id="rendaowari">終了！</p>
+  <p id="kekka"></p>
+  <p id="rendanankai"></p>
+  <h3><div id="rendastart">start!!</div></h3>
+  <img id="rendaimg" src="InShot_20250824_183815200.gif">
+  <button id="renda">renda!!</button>
+  <script>
+  let rendanankai=0;
+  let best=localStorage.getItem("best");
+  document.getElementById("best").innerHTML=`最高記録:${best}回`;
+  document.getElementById("rendasuru").addEventListener("click",()=>{
+    document.getElementById("best").style.display="none";
+    document.getElementById("startmade").style.display="none";
+    document.getElementById("rendasuru").style.display="none";
+    setTimeout(()=>{document.getElementById("renda").style.display="block";
+      document.getElementById("rendastart").style.display="block";
+      document.getElementById("renda").scrollIntoView({behavior: 'auto'});
+      document.getElementById("rendaimg").style.display="block";
+    },3000);
+    document.getElementById("renda").addEventListener("click",()=>{
+      rendanankai++;
+      });
+      setTimeout(()=>{
+        if (localStorage.getItem("best")<rendanankai){
+          localStorage.setItem("best",rendanankai);
+        };
+        document.getElementById("rendastart").style.display="none";
+        document.getElementById("rendaowari").style.display="block";
+        document.getElementById("renda").style.display="none";
+        document.getElementById("rendaimg").style.display="none";
+        document.getElementById("kekka").innerHTML="結果";
+        document.getElementById("rendanankai").style.display="block";
+        document.getElementById("rendanankai").innerText=`${rendanankai}回！`;
+        document.getElementById("rendanankai").scrollIntoView({behavior: "smooth"});
+        setTimeout(()=>{location.reload()},4000);
+      },13000);
+    });
+  </script>
+</body>
+</html>
