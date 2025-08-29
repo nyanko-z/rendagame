@@ -112,7 +112,8 @@
       document.getElementById("rendastart").style.display="block";
       document.getElementById("renda").scrollIntoView({behavior: 'auto'});
       document.getElementById("rendaimg").style.display="block";
-      document.getElementById("soundback").currentTime=0;
+      const soundback=document.getElementById("soundback");
+                    soundback.currentTime=0;
                     sound.play();
     },3000);
     document.getElementById("renda").addEventListener("click",()=>{
@@ -122,8 +123,9 @@
       rendanankai++;
       });
       setTimeout(()=>{
-        document.getElementById("soundfinish").currentTime=0;
-                    sound.play();
+      const soundfinish=document.getElementById("soundfinish");
+        soundfinish.currentTime=0;            
+        sound.play();
         if (localStorage.getItem("best")<rendanankai){
           localStorage.setItem("best",rendanankai);
         };
@@ -135,8 +137,9 @@
         document.getElementById("rendanankai").style.display="block";
         document.getElementById("rendanankai").innerText=`${rendanankai}回！`;
         document.getElementById("rendanankai").scrollIntoView({behavior: "smooth"});
-        document.getElementById("soundback").currentTime=0;
-                    sound.pause();
+        const soundfinish=document.getElementById("soundback");
+        soundfinish.currentTime=0;           
+        sound.pause();
         setTimeout(()=>{location.reload()},4000);
       },13000);
     });
