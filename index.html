@@ -87,6 +87,7 @@
   <audio id="soundmusic" src="決定ボタンを押す22.mp3"></audio>
   <audio id="soundback" src="【無料素材】リズムパターン２.m4a"></audio>
   <audio id="soundfinish" src="ジャン！.mp3"></audio>
+  <audio id="soundstart" src="カウントダウン電子音.mp3">
   <div id="menu"><a href="https://nyanko-z.github.io/WM-nyanko/" id="menufont">ホーム<span id="menuaida"> | </span></a><a href="https://nyanko-z.github.io/rendagame/" id="menufont">連打ゲー<span id="menuaida"> | </span></a></div>
     <div id="yohaku"></div>
     <button id="rendasuru">連打ゲーをする</button>
@@ -103,6 +104,8 @@
   let best=localStorage.getItem("best");
   document.getElementById("best").innerHTML=`最高記録:${best}回`;
   document.getElementById("rendasuru").addEventListener("click",()=>{
+    let soundstart=document.getElementById("soundstart");
+    
     document.getElementById("best").style.display="none";
     document.getElementById("startmade").style.display="none";
     document.getElementById("rendasuru").style.display="none";
